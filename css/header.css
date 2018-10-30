@@ -1,0 +1,39 @@
+.menu {
+    border-bottom: 1.5rem solid lightgray;
+}
+
+.menu__list {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+
+.menu__item {
+    
+}
+
+.menu__item__link {
+    display: block;
+    text-decoration: none;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    color: black;
+    font-weight: bold;
+    padding: .5rem 1rem;
+}
+
+.title {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(#72855A, #B2B89C);
+}
+.title__logo {
+    
+}
+.title__text {
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+}
