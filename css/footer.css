@@ -1,0 +1,27 @@
+.footer {
+    width: 100vw;
+    padding: var(--main-padding);
+    background: linear-gradient(#B2B89C, #72855A);
+    border-bottom: 1.5rem solid lightgray;
+}
+
+.contacts__title {
+    font-family: var(--title-font);
+    font-style: normal;
+}
+
+.contacts__email-title, .contacts__email-link {
+    font-style: normal;
+    display: inline-block;
+}
+
+.contacts__email-link a {
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+.contacts__email-link a:hover {
+    font-weight: bold;
+    transition: 0.05s;
+}

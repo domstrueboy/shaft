@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Валы и механические передачи 3D</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <header class="header">
@@ -26,49 +26,71 @@
         </nav>
         <section class="title">
             <img src="img/logo.png" alt="" class="title__logo">
-            <h1 class="title__text">Валы и механические передачи 3D</h1>
+            <h1 class="title__text">Валы и механические передачи <span class="title__3D">3D</span></h1>
         </section>
         <section class="search">
             <form action="submit" class="search__form">
                 <input type="text" class="search__input" placeholder="поиск по сайту">
-                <button class="search__button">Найти</button>
+                <button class="search__button">найти</button>
             </form>
         </section>
     </header>
 
-    <aside class="aside">
-        <section class="sections">
-            <ul class="sections__list">
-                <li class="sections__item">Построение по типам механических передач</li>
-                <li class="sections__item">Стандарты по тематике "Валы и механические передачи"</li>
-                <li class="sections__item">Видео по системе "Валы и механические передачи"</li>
-                <li class="sections__item">Статьи "Разное"</li>
-                <li class="sections__item">Техническая библиотека</li>
-                <li class="sections__item">Вопрос-Ответ</li>
-            </ul>
-        </section>
-        <section class="news">
-            <ul class="news__list">
-                <li class="news__item">1</li>
-                <li class="news__item">2</li>
-                <li class="news__item">3</li>
-            </ul>
-        </section>
-        <section class="advertisement">Рекламный блок с баннером</section>
-    </aside>
-
     <main class="main">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi fugit consequuntur illo culpa laboriosam quaerat repellendus, laudantium ducimus corrupti beatae! Ab quaerat, ipsam sed odio similique iusto dicta commodi cupiditate esse, reprehenderit numquam dolorem libero aspernatur consequuntur quisquam quasi possimus aliquid veritatis ipsa nemo! Quisquam, tempore totam vitae autem, ipsum hic ea cupiditate odit illum ad, sit sunt voluptas dolores praesentium? Accusantium dolorum, eligendi praesentium dicta optio assumenda iusto neque excepturi deserunt fuga nam veniam labore eum animi nihil reiciendis eaque id tenetur ut ex consequatur deleniti. Nulla facere hic mollitia ipsum distinctio. Excepturi deserunt porro quibusdam blanditiis voluptates?
-        </p>
+        <aside class="aside">
+            <section class="topics">
+                <h3 class="topics__title">Разделы</h3>
+                <ul class="topics__list">
+                    <li class="topics__item">
+                        <a href="#" class="topics__item__link">Построение по типам механических передач</a>
+                    </li>
+                    <li class="topics__item">
+                        <a href="#" class="topics__item__link">Стандарты по тематике "Валы и механические передачи"</a>
+                    </li>
+                    <li class="topics__item">
+                        <a href="#" class="topics__item__link">Видео по системе "Валы и механические передачи"</a>
+                    </li>
+                    <li class="topics__item">
+                        <a href="#" class="topics__item__link">Статьи "Разное"</a>
+                    </li>
+                    <li class="topics__item">
+                        <a href="#" class="topics__item__link">Техническая библиотека</a>
+                    </li>
+                    <li class="topics__item">
+                        <a href="#" class="topics__item__link">Вопрос-Ответ</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="news">
+                <h3 class="news__title">Новости</h3>
+                <ul class="news__list">
+                    <li class="news__item">
+                        <a href="#" class="news__item__link">1</a>
+                    </li>
+                    <li class="news__item">
+                        <a href="#" class="news__item__link">2</a>
+                    </li>
+                    <li class="news__item">
+                        <a href="#" class="news__item__link">3</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="advertisement">
+                <div class="advertisement__banner">Рекламный блок с баннером</div>
+            </section>
+        </aside>
+
+        <article class="article">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ea quam doloremque iste, mollitia similique tempora nam? Unde necessitatibus reiciendis neque enim dolorum adipisci praesentium eaque esse provident. Minima, asperiores? Assumenda amet error temporibus dolores suscipit pariatur cumque nisi veniam quae, voluptates sed iste neque repellat accusantium obcaecati in officia magnam, voluptatibus repellendus. Amet, perferendis, possimus dignissimos ducimus tenetur illum laboriosam veritatis est ratione, provident dolore! Quas reiciendis nobis ratione. Quo dolore, nihil ut modi sit totam, asperiores cum qui assumenda illo alias harum explicabo quisquam omnis sint eligendi impedit sed, exercitationem unde aspernatur veritatis veniam. Provident maiores eveniet tempora?
+        </article>
     </main>
 
     <footer class="footer">
-        <address itemprop="author">
+        <address itemprop="author" class="contacts">
             <dl>
-                <dt>Контакты:</dt>
-                <dt>Электронная почта:</dt>
-                <dd><a rel="author" href="mailto:Vgolovanev@mail.ru">Vgolovanev@mail.ru</a></dd>
+                <dt class="contacts__title">Контакты:</dt>
+                <dt class="contacts__email-title">E-mail:</dt>
+                <dd class="contacts__email-link"><a rel="author" href="mailto:Vgolovanev@mail.ru">Vgolovanev@mail.ru</a></dd>
             </dl>
         </address>
     </footer>
