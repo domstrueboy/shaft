@@ -1,7 +1,0 @@
-@import 'aside.css';
-@import 'article.css';
-
-.main {
-    flex: 1;
-    display: flex;
-}
