@@ -51,14 +51,13 @@ export default {
   },
     data () {
         return {
-            mainMenu: []
+            topMenu: []
         }
     },
     methods: {
         fetchData: function () {
-            let self = this
-            // const myRequest = new Request('http://maketir.ru/dev/wp-json/wp/v2/categories')
-            const myRequest = new Request('http://localhost/wp-json/wp/v2/categories', {mode: 'no-cors'})
+            let self = this;
+            const myRequest = new Request('http://shaft.tmweb.ru/wordpress/wp-json/wp/v2/categories');
 
             function sorting (a, b) { // Сортировка по номеру, уазанному в description категории
                 if (a.description > b.description) {
@@ -73,17 +72,17 @@ export default {
             fetch(myRequest)
                 .then((response) => { return response.json() })
                 .then((data) => {
-                    const mainMenuID = data.find(el => el.slug === 'main-menu').id
-                    self.mainMenu = data
-                        .filter(el => el.parent === mainMenuID)
-                        .sort(sorting)
+                    const topMenuID = data.find(el => el.slug === 'topmenu').id;
+                    self.topMenu = data
+                        .filter(el => el.parent === topMenuID)
+                        .sort(sorting);
 
-                    for (let item of self.mainMenu) {
+                    for (let item of self.topMenu) {
                         item.submenu = data
                             .filter(el => el.parent === item.id)
-                            .sort(sorting)
+                            .sort(sorting);
                     }
-                    console.log(data);
+                    console.log(self.topMenu);
                 })
                 .catch(error => { console.log(error) })
         }
