@@ -4,7 +4,7 @@
 
     <main class="main">
         <AsideComponent addr="http://shaft.tmweb.ru/wordpress/wp-json/wp/v2/"/>
-        <router-view class="article"/>
+        <router-view addr="http://shaft.tmweb.ru/wordpress/wp-json/wp/v2/" class="article"/>
     </main>
 
     <FooterComponent/>

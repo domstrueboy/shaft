@@ -3,11 +3,11 @@
         <section class="topics">
             <h3 class="topics__title">Разделы</h3>
             <ul class="topics__list">
-                <li class="topics__item" v-for="topic in topics" v-if="topic.posts">
+                <li class="topics__item" v-for="topic in topics">
                     <h4 class="topics__item__link">{{topic.name}}</h4>
-                    <ul>
+                    <ul v-if="topic.posts">
                         <li v-for="post in topic.posts">
-                            <router-link :to="`${post.slug}`" class="topmenu__item__link">{{post.title}}</router-link>
+                            <router-link :to="'/' + topic.slug + '/' + post.slug + '$' + post.id" class="topmenu__item__link">{{post.title}}</router-link>
                         </li>
                     </ul>
                 </li>
@@ -36,13 +36,17 @@
 <script>
     export default {
         name: 'AsideComponent',
+
         props: {
             addr: String
         },
+
         data () {
-            return { topics: []
+            return {
+                topics: []
             }
         },
+
         methods: {
             getData: function () {
 
@@ -66,7 +70,8 @@
                                     data.forEach(post => {
                                         topic.posts.push({
                                             title: post.title.rendered,
-                                            slug: post.slug
+                                            slug: post.slug,
+                                            id: post.id
                                         });
                                     });
 
