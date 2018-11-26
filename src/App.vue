@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <HeaderComponent msg="Welcome to Your Vue.js App"/>
+    <HeaderComponent/>
 
     <main class="main">
-        <AsideComponent msg="Welcome to Your Vue.js App"/>
+        <AsideComponent addr="http://shaft.tmweb.ru/wordpress/wp-json/wp/v2/"/>
         <router-view class="article"/>
     </main>
 
-    <FooterComponent msg="Welcome to Your Vue.js App"/>
+    <FooterComponent/>
   </div>
 </template>
 
