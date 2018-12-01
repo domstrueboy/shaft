@@ -3,10 +3,10 @@
         <section class="topics">
             <h3 class="topics__title">Разделы</h3>
             <ul class="topics__list">
-                <li class="topics__item" v-for="topic in topics">
+                <li class="topics__item" v-for="topic in topics" :key="topic.id">
                     <h4 class="topics__item__link">{{topic.name}}</h4>
                     <ul v-if="topic.posts">
-                        <li v-for="post in topic.posts">
+                        <li v-for="post in topic.posts" :key="post.id">
                             <router-link :to="'/' + topic.slug + '/' + post.slug + '$' + post.id" class="topmenu__item__link">{{post.title}}</router-link>
                         </li>
                     </ul>
@@ -55,6 +55,7 @@
                 fetch(`${self.addr}categories?parent=6&amp;orderby=description`)
                     .then((response) => { return response.json() })
                     .then((data) => {
+
                         self.topics = data;
 
                         self.topics.forEach(topic => {
@@ -65,7 +66,7 @@
                                 .then((response) => { return response.json() })
                                 .then((data) => {
 
-                                    topic.posts = [];
+                                    this.$set(topic, 'posts', []);
 
                                     data.forEach(post => {
                                         topic.posts.push({
@@ -74,7 +75,6 @@
                                             id: post.id
                                         });
                                     });
-
                                 });
                         });
                     })
