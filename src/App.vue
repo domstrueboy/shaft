@@ -59,4 +59,8 @@ export default {
 .article {
     padding: calc(2*var(--main-padding));
 }
+.pdf {
+    width: 100%;
+    height: 60vh;
+}
 </style>

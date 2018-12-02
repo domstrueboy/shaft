@@ -1,14 +1,45 @@
 <template>
   <div class="services">
-    <h1>Услуги</h1>
+    <h1>{{ content.title }}</h1>
+    <div v-html="content.body"></div>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'Home',
+    name: 'Services',
+
     props: {
-       msg: String
+        addr: String
+    },
+
+    data () {
+        return {
+            content: {
+                title: 'Загрузка...',
+                body: 'Загрузка...'
+            }
+        }
+    },
+
+    methods: {
+        getPage: function () {
+
+            let self = this;
+
+            fetch(`${self.addr}pages?slug=services`)
+                .then((response) => { return response.json() })
+                .then((data) => {
+
+                    self.content.title = data[0].title.rendered;
+                    self.content.body = data[0].content.rendered;
+                })
+                .catch(error => { console.log(error) });
+        }
+    },
+
+    mounted () {
+        this.getPage();
     }
 }
 </script>

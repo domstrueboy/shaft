@@ -7,7 +7,9 @@
                     <h4 class="topics__item__link">{{topic.name}}</h4>
                     <ul v-if="topic.posts">
                         <li v-for="post in topic.posts" :key="post.id">
-                            <router-link :to="'/' + topic.slug + '/' + post.slug + '$' + post.id" class="topmenu__item__link">{{post.title}}</router-link>
+                            <router-link :to="'/' + topic.slug + '/' + post.slug + '$' + post.id" class="topmenu__item__link">
+                                {{post.title}}
+                            </router-link>
                         </li>
                     </ul>
                 </li>
@@ -16,14 +18,10 @@
         <section class="news">
             <h3 class="news__title">Новости</h3>
             <ul class="news__list">
-                <li class="news__item">
-                    <a href="#" class="news__item__link">1</a>
-                </li>
-                <li class="news__item">
-                    <a href="#" class="news__item__link">2</a>
-                </li>
-                <li class="news__item">
-                    <a href="#" class="news__item__link">3</a>
+                <li class="news__item" v-for="news_item in news" :key="news_item.id">
+                    <router-link :to="'/' + news_item.slug + '/' + news_item.slug + '$' + news_item.id" class="news__item__link">
+                        {{news_item.title.rendered}}
+                    </router-link>
                 </li>
             </ul>
         </section>
@@ -43,12 +41,13 @@
 
         data () {
             return {
-                topics: []
+                topics: [],
+                news: []
             }
         },
 
         methods: {
-            getData: function () {
+            getTopics: function () {
 
                 let self = this;
 
@@ -62,7 +61,7 @@
 
                             if (topic.count === 0) return;
 
-                            fetch(`${self.addr}posts?context=embed&amp;categories=${topic.id}`)
+                            fetch(`${self.addr}posts?categories=${topic.id}`)
                                 .then((response) => { return response.json() })
                                 .then((data) => {
 
@@ -79,11 +78,25 @@
                         });
                     })
                     .catch(error => { console.log(error) });
+            },
+
+            getNews: function () {
+
+                let self = this;
+
+                fetch(`${self.addr}posts?per_page=3`)
+                    .then((response) => { return response.json() })
+                    .then((data) => {
+
+                        self.news = data;
+                    })
+                    .catch(error => { console.log(error) });
             }
         },
 
         mounted () {
-            this.getData();
+            this.getTopics();
+            this.getNews();
         }
     }
 </script>

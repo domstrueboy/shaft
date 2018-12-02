@@ -1,7 +1,7 @@
 <template>
     <div class="article">
-        <h1>{{ content.title }}</h1>
-        <div v-html="content.body"></div>
+        <h1 class="article__title">{{ content.title }}</h1>
+        <div class="article__body" v-html="content.body"></div>
     </div>
 </template>
 
@@ -59,3 +59,9 @@
         }
     }
 </script>
+
+<style scoped>
+.article {
+    width: 100%;
+}
+</style>
