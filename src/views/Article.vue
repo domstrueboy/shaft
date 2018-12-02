@@ -63,5 +63,6 @@
 <style scoped>
 .article {
     width: 100%;
+    padding: calc(2*var(--main-padding));
 }
 </style>

@@ -42,3 +42,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.home {
+    width: 100%;
+    padding: calc(2*var(--main-padding));
+}
+</style>

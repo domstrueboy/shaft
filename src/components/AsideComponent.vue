@@ -5,9 +5,9 @@
             <ul class="topics__list">
                 <li class="topics__item" v-for="topic in topics" :key="topic.id">
                     <h4 class="topics__item__link">{{topic.name}}</h4>
-                    <ul v-if="topic.posts">
+                    <ul class="topics__list topics__list_submenu" v-if="topic.posts">
                         <li v-for="post in topic.posts" :key="post.id">
-                            <router-link :to="'/' + topic.slug + '/' + post.slug + '$' + post.id" class="topmenu__item__link">
+                            <router-link :to="'/' + topic.slug + '/' + post.slug + '$' + post.id" class="topics__item__link topics__item__link_submenu">
                                 {{post.title}}
                             </router-link>
                         </li>
@@ -106,6 +106,11 @@
         padding-bottom: 1.25rem;
     }
 
+    .topics__list_submenu {
+        list-style-type: none;
+        padding-bottom: 0;
+    }
+
     .topics__title, .news__title {
         font-family: var(--title-font);
         padding-bottom: .75rem;
@@ -154,6 +159,10 @@
     .topics__item__link:hover, .news__item__link:hover {
         transform: scale(1.01);
         transition: 0.05s;
+    }
+
+    .topics__item__link_submenu {
+        padding-left: 2rem;
     }
 
     .advertisement {

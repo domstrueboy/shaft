@@ -43,3 +43,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.services {
+    width: 100%;
+    padding: calc(2*var(--main-padding));
+}
+</style>

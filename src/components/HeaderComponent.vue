@@ -48,6 +48,7 @@ export default {
   display: flex;
   justify-content: flex-end;
   list-style-type: none;
+  max-width: var(--main-width);
 }
 
 .topmenu__item__link {
@@ -68,7 +69,7 @@ export default {
 .router-link-exact-active {
   transform: scale(1.05);
   transition: 0.1s;
-  color: tomato;
+  color: orange;
 }
 
 .title {
@@ -102,6 +103,7 @@ export default {
   display: flex;
   flex-direction: row-reverse;
   padding: var(--main-padding);
+  max-width: var(--main-width);
 }
 
 .search__form {

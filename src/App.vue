@@ -4,7 +4,7 @@
 
     <main class="main">
         <AsideComponent addr="http://shaft.tmweb.ru/wordpress/wp-json/wp/v2/"/>
-        <router-view addr="http://shaft.tmweb.ru/wordpress/wp-json/wp/v2/" class="article"/>
+        <router-view addr="http://shaft.tmweb.ru/wordpress/wp-json/wp/v2/"/>
     </main>
 
     <FooterComponent/>
@@ -34,6 +34,7 @@ export default {
     --main-padding: .5rem;
     --title-font: 'Roboto Slab', serif;
     --main-font: 'Roboto', sans-serif;
+    --main-width: 1280px;
 }
 
 * {
@@ -46,6 +47,7 @@ export default {
 #app {
     display: flex;
     flex-direction: column;
+    align-items: center;
     min-height: 100vh;
     font-family: var(--main-font);
     font-size: var(--one-rem);
@@ -54,11 +56,11 @@ export default {
 .main {
     flex: 1;
     display: flex;
+    flex-wrap: nowrap;
+    max-width: var(--main-width);
+    /*background: lightblue;*/
 }
 
-.article {
-    padding: calc(2*var(--main-padding));
-}
 .pdf {
     width: 100%;
     height: 60vh;
