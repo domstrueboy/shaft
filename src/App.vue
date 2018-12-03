@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
@@ -64,5 +64,49 @@ export default {
 .pdf {
     width: 100%;
     height: 60vh;
+}
+
+.aligncenter {
+    text-align: center;
+}
+
+.wp-block-gallery {
+
+    display: flex;
+    height: 200px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+
+    .blocks-gallery-item {
+
+        padding-right: 10px;
+        list-style-type: none;
+
+        figure {
+
+            position: relative;
+            height: 100%;
+
+            img {
+                max-width: 100%;
+                height: 200px;
+            }
+
+            figcaption {
+                position: absolute;
+                color: white;
+                bottom: 0;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                width: 100%;
+                background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+            }
+        }
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
 }
 </style>

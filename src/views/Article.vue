@@ -60,9 +60,15 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss"scoped>
 .article {
     width: 100%;
     padding: calc(2*var(--main-padding));
+
+    .article__body {
+        padding-top: 10px;
+    }
+
+
 }
 </style>
