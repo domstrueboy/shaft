@@ -1,8 +1,5 @@
 <template>
-  <div class="services">
-    <h1>{{ content.title }}</h1>
-    <div v-html="content.body"></div>
-  </div>
+  <div v-html="content.body" class="services page"></div>
 </template>
 
 <script>
@@ -48,5 +45,6 @@ export default {
 .services {
     width: 100%;
     padding: calc(2*var(--main-padding));
+    padding-right: 0;
 }
 </style>

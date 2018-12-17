@@ -16,8 +16,10 @@
       </ul>
     </nav>
     <section class="title">
-      <img src="@/assets/logo.png" alt="" class="title__logo">
-      <h1 class="title__text">Валы и механические передачи <span class="title__3D">3D</span></h1>
+      <router-link to="/" class="title__content">
+        <img src="@/assets/logo.png" alt="" class="title__logo">
+        <h1 class="title__text">Валы и механические передачи <span class="title__3D">3D</span></h1>
+      </router-link>
     </section>
     <section class="search">
       <form action="submit" class="search__form">
@@ -32,16 +34,17 @@
 export default {
   name: 'HeaderComponent',
   props: {
-    msg: String
+    addr: String
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.header {
+    width: 100vw;
+}
 .topmenu {
-  width: 100vw;
   border-bottom: 1.5rem solid lightgray;
-  padding-right: var(--main-padding);
 }
 
 .topmenu__list {
@@ -49,6 +52,7 @@ export default {
   justify-content: flex-end;
   list-style-type: none;
   max-width: var(--main-width);
+  margin: 0 auto;
 }
 
 .topmenu__item__link {
@@ -66,32 +70,43 @@ export default {
   transition: 0.1s;
 }
 
-.router-link-exact-active {
-  transform: scale(1.05);
-  transition: 0.1s;
-  color: orange;
-}
-
 .title {
-  display: flex;
-  justify-content: stretch;
-  align-items: center;
-  padding: var(--main-padding);
+  width: 100vw;
   background: linear-gradient(#72855A, #B2B89C);
 }
 
+.title__content {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: var(--main-padding);
+  max-width: var(--main-width);
+  text-decoration: none;
+  position: relative;
+  color: black;
+
+  &:visited {
+    color: black;
+  }
+}
+
+.title__logo {
+    position: absolute;
+    bottom: 0;
+    left: calc(1.5*var(--main-padding));
+}
+
 .title__text {
-  width: 100%;
   font-family: var(--title-font);
   font-size: 4.5vw;
   font-weight: normal;
   white-space: nowrap;
-  padding-left: calc(3*var(--main-padding));
+  padding-left: calc(16*var(--main-padding));
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .title__text {
-    font-size: 3.6rem;
+    font-size: 3rem;
   }
 }
 
@@ -102,8 +117,10 @@ export default {
 .search {
   display: flex;
   flex-direction: row-reverse;
-  padding: var(--main-padding);
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
   max-width: var(--main-width);
+  margin: 0 auto;
 }
 
 .search__form {

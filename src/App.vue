@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderComponent/>
+    <HeaderComponent :addr="addr"/>
 
     <main class="main">
         <AsideComponent addr="http://shaft.tmweb.ru/wordpress/wp-json/wp/v2/"/>
@@ -21,6 +21,12 @@ export default {
         HeaderComponent,
         AsideComponent,
         FooterComponent
+    },
+
+    data () {
+        return {
+            addr: 'http://shaft.tmweb.ru/wordpress/wp-json/wp/v2/'
+        }
     }
 }
 </script>
@@ -34,7 +40,7 @@ export default {
     --main-padding: .5rem;
     --title-font: 'Roboto Slab', serif;
     --main-font: 'Roboto', sans-serif;
-    --main-width: 1280px;
+    --main-width: 1024px;
 }
 
 * {
@@ -57,8 +63,8 @@ export default {
     flex: 1;
     display: flex;
     flex-wrap: nowrap;
+    width: 100%;
     max-width: var(--main-width);
-    /*background: lightblue;*/
 }
 
 .pdf {
@@ -107,6 +113,22 @@ export default {
         &:last-child {
             padding-right: 0;
         }
+    }
+}
+
+.page {
+
+    width: 100%;
+
+    p, ul {
+        padding-bottom: calc(2*var(--main-padding));
+        line-height: 1.4;
+    }
+
+    li {
+        list-style-position: inside;
+        padding-bottom: var(--main-padding);
+        padding-left: var(--main-padding);
     }
 }
 </style>

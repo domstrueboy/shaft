@@ -63,7 +63,8 @@
 <style lang="scss"scoped>
 .article {
     width: 100%;
-    padding: calc(2*var(--main-padding));
+    padding: calc(4*var(--main-padding));
+    padding-right: 0;
 
     .article__body {
         padding-top: 10px;

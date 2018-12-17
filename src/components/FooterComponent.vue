@@ -27,6 +27,11 @@ export default {
   border-bottom: 1.5rem solid lightgray;
 }
 
+.contacts {
+  max-width: var(--main-width);
+  margin: 0 auto;
+}
+
 .contacts__title {
   font-family: var(--title-font);
   font-style: normal;

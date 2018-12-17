@@ -3,15 +3,18 @@
         <section class="topics">
             <h3 class="topics__title">Разделы</h3>
             <ul class="topics__list">
-                <li class="topics__item" v-for="topic in topics" :key="topic.id">
-                    <h4 class="topics__item__link">{{topic.name}}</h4>
-                    <ul class="topics__list topics__list_submenu" v-if="topic.posts">
-                        <li v-for="post in topic.posts" :key="post.id">
-                            <router-link :to="'/' + topic.slug + '/' + post.slug + '$' + post.id" class="topics__item__link topics__item__link_submenu">
+                <li class="topics__item" v-for="topic in topics" :key="topic.id" v-if="topic.posts">
+                    <h4 v-if="topic.posts.length > 1" class="topics__item__link">{{topic.name}}</h4>
+                    <ul v-if="topic.posts.length > 1" class="topics__list topics__list_submenu">
+                        <li class="topics__list__submenu__item" v-for="post in topic.posts" :key="post.id">
+                            <router-link class="topics__list__submenu__item__link" :to="'/' + topic.slug + '/' + post.slug + '$' + post.id">
                                 {{post.title}}
                             </router-link>
                         </li>
                     </ul>
+                    <router-link v-else-if="topic.posts.length === 1" :to="'/' + topic.slug + '/' + topic.posts[0].slug + '$' + topic.posts[0].id" class="topics__item__link">
+                        {{topic.posts[0].title}}
+                    </router-link>
                 </li>
             </ul>
         </section>
@@ -101,7 +104,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .topics__list, .news__list {
         padding-bottom: 1.25rem;
     }
@@ -109,6 +112,8 @@
     .topics__list_submenu {
         list-style-type: none;
         padding-bottom: 0;
+        display: none;
+        opacity: 0;
     }
 
     .topics__title, .news__title {
@@ -150,6 +155,29 @@
         background: linear-gradient(to right, lightgray, rgba(0, 0, 0, 0));;
     }
 
+    .topics__item:hover .topics__list_submenu {
+        display: block;
+        opacity: 1;
+        animation: fadeIn .5s linear;
+    }
+
+    @keyframes fadeIn {
+
+        0% {
+            display: none;
+            opacity: 0;
+        }
+
+        1% {
+            display: block;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
     .topics__item__link, .news__item__link {
         display: block;
         color: black;
@@ -161,8 +189,29 @@
         transition: 0.05s;
     }
 
-    .topics__item__link_submenu {
-        padding-left: 2rem;
+    .topics__list__submenu__item {
+        padding-top: calc(2 * var(--main-padding));
+        padding-left: calc(2 * var(--main-padding));
+
+        &:last-child {
+            padding-bottom: var(--main-padding);
+        }
+
+        &:hover {
+            transform: scale(1.01);
+            transition: 0.05s;
+        }
+    }
+
+    .topics__list__submenu__item__link {
+        text-decoration: none;
+        color: black;
+        font-weight: normal;
+
+        &:visited {
+            color: black;
+            font-weight: normal;
+        }
     }
 
     .advertisement {

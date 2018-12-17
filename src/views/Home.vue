@@ -1,13 +1,19 @@
 <template>
     <div class="home">
-        <h1>{{ content.title }}</h1>
-        <div v-html="content.body"></div>
+        <div class="page" v-html="content.body"></div>
+        <GalleryComponent/>
     </div>
 </template>
 
 <script>
+import GalleryComponent from '@/components/GalleryComponent.vue';
+
 export default {
     name: 'Home',
+
+    components: {
+        GalleryComponent
+    },
 
     props: {
         addr: String
@@ -46,6 +52,7 @@ export default {
 <style scoped>
 .home {
     width: 100%;
-    padding: calc(2*var(--main-padding));
+    padding: calc(4*var(--main-padding));
+    padding-right: 0;
 }
 </style>
