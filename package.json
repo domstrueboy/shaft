@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "vue": "^2.5.17",
+    "vue-image-lightbox": "^6.0.1",
+    "vue-lazyload": "^1.2.6",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

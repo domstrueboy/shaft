@@ -3,8 +3,8 @@
     <HeaderComponent :addr="addr"/>
 
     <main class="main">
-        <AsideComponent addr="http://shaft.tmweb.ru/wordpress/wp-json/wp/v2/"/>
-        <router-view addr="http://shaft.tmweb.ru/wordpress/wp-json/wp/v2/"/>
+        <AsideComponent :addr="addr"/>
+        <router-view :addr="addr"/>
     </main>
 
     <FooterComponent/>
@@ -25,7 +25,7 @@ export default {
 
     data () {
         return {
-            addr: 'http://shaft.tmweb.ru/wordpress/wp-json/wp/v2/'
+            addr: 'http://shaft-gears.ru/wordpress/wp-json/wp/v2/'
         }
     }
 }
